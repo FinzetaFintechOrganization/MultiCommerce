@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/adem/.dotnet/store/|arch|/|tfm|",
+      "/home/adem/.nuget/packages"
+    ]
+  }
+}

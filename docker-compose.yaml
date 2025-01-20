@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: IdentityDB
+    environment:
+      POSTGRES_USER: identity
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: IdentityDB
+    ports:
+      - "5501:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
