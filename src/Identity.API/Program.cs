@@ -1,5 +1,4 @@
-﻿using IdentityServer4;
-using Identity.API.Data;
+﻿using Identity.API.Data;
 using Identity.API.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +16,8 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        var configuration = builder.Configuration;
 
         builder.Services.AddControllersWithViews();
 
@@ -39,7 +40,8 @@ public class Program
         })
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddInMemoryClients(Config.Clients)
+            .AddInMemoryApiResources(Config.ApiResources)
+            .AddInMemoryClients(Config.Clients(configuration))
             .AddAspNetIdentity<ApplicationUser>()
             .AddDeveloperSigningCredential(); // Not recommended for production
 
@@ -48,7 +50,6 @@ public class Program
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-            app.UseMigrationsEndPoint();
         }
 
         app.UseStaticFiles();
