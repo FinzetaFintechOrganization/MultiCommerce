@@ -214,3 +214,4 @@
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/obj/Debug/net9.0/compressed/nezrqnk58p-muycvpuwrr.gz
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/obj/Debug/net9.0/compressed/v0zgfp0y55-87fc7y1x7t.gz
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/obj/Debug/net9.0/compressed/yfc7ypekbg-mlv21k5csn.gz
+/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Scalar.AspNetCore.dll
