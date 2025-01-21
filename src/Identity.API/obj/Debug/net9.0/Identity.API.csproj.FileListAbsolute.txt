@@ -48,15 +48,6 @@
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/obj/Debug/net9.0/Identity.API.pdb
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/obj/Debug/net9.0/Identity.API.genruntimeconfig.cache
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/obj/Debug/net9.0/ref/Identity.API.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
-/home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Npgsql.dll
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /home/adem/Masaüstü/FinzetaFintechOrganization/MultiCommerce/src/Identity.API/bin/Debug/net9.0/Humanizer.dll
