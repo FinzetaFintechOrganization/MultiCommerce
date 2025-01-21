@@ -6,7 +6,6 @@ namespace Identity.API
 {
     public static class Config
     {
-        // Api Resources - API'lere erişim için gerekli kaynaklar
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[] 
         {
             new ApiResource("Catalog")
@@ -15,7 +14,6 @@ namespace Identity.API
             }
         };
 
-        // Identity Resources - Kullanıcı kimlik doğrulaması için gerekli kaynaklar
         public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[] 
         {
             new IdentityResources.OpenId(),
@@ -23,13 +21,11 @@ namespace Identity.API
             new IdentityResources.Profile()
         };
 
-        // API Scope'ları - API erişim izinleri
         public static IEnumerable<ApiScope> ApiScopes => new ApiScope[] 
         {
             new ApiScope("CatalogFullPermission", "Full authority for catalog service")
         };
 
-        // Client konfigürasyonları - İstemciler için izin verilen grant türleri ve kapsamlar
         public static IEnumerable<Client> Clients(IConfiguration configuration) => new Client[] 
         {
             new Client

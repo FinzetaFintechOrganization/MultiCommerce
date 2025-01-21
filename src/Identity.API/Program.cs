@@ -1,36 +1,30 @@
 ﻿using Identity.API.Data;
-using Identity.API.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Identity.API;
+using Scalar.AspNetCore;
 
+var builder = WebApplication.CreateBuilder(args);
 
-namespace Identity.API;
+var configuration = builder.Configuration;
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
 
-        var configuration = builder.Configuration;
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
-        builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-        builder.Services.AddControllers();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
-        builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-        builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
-
-        builder.Services.AddIdentityServer(options =>
+builder.Services.AddIdentityServer(options =>
         {
             options.Events.RaiseErrorEvents = true;
             options.Events.RaiseInformationEvents = true;
@@ -43,25 +37,32 @@ public class Program
             .AddInMemoryApiResources(Config.ApiResources)
             .AddInMemoryClients(Config.Clients(configuration))
             .AddAspNetIdentity<ApplicationUser>()
-            .AddDeveloperSigningCredential(); // Not recommended for production
+            .AddDeveloperSigningCredential();
 
+builder.Services.AddControllers();
 
-        var app = builder.Build();
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
+builder.Services.AddEndpointsApiExplorer();
 
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseIdentityServer();
-        app.UseAuthorization();
+builder.Services.AddOpenApi();
 
-        
-        app.MapDefaultControllerRoute();
+var app = builder.Build();
 
-        app.MapControllers();
+app.UseDeveloperExceptionPage();
 
-        app.Run();
-    }
-}
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseIdentityServer();
+
+app.UseAuthorization();
+
+app.MapDefaultControllerRoute();
+
+app.MapOpenApi();
+
+app.MapScalarApiReference();
+
+app.MapControllers();
+
+app.Run();
