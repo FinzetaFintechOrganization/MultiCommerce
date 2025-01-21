@@ -1,6 +1,6 @@
 using System;
 
-public class UpdateCompanyRequestDto
+public class UpdateCompanyDto
 {
     public string CompanyName { get; set; }
     public string TaxNumber { get; set; }

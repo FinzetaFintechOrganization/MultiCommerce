@@ -25,5 +25,12 @@ namespace IdentityServer.Data
         public DbSet<TwoFactorAuth> TwoFactorAuths { get; set; }
         public DbSet<UserOAuth> UserOAuths { get; set; }
         public DbSet<UserSecurityQuestion> UserSecurityQuestions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+        }
     }
 }

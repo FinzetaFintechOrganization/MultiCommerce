@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "IdentityServer4.AspNetIdentity": {
               "target": "Package",
               "version": "[4.0.0, )"
@@ -56,15 +60,7 @@
               "target": "Package",
               "version": "[9.0.1, )"
             },
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.1, )"
-            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.1, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[9.0.1, )"
             },

@@ -1,4 +1,5 @@
-﻿using IdentityServer;
+﻿using FluentValidation.AspNetCore;
+using IdentityServer;
 using IdentityServer.Data;
 using IdentityServer.Models;
 using IdentityServer4;
@@ -12,6 +13,12 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddControllers()
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>());
+
 
 builder.Services.AddControllersWithViews();
 
@@ -52,7 +59,6 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.UseDeveloperExceptionPage();
-app.UseDatabaseErrorPage();
 app.UseStaticFiles();
 app.UseRouting();
 

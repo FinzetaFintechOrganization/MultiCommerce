@@ -16,8 +16,14 @@ public class CompanyController : ControllerBase
     [HttpPost("create")]
     public async Task<IActionResult> CreateCompany([FromBody] CreateCompanyDto model)
     {
-        var company = await _companyService.CreateCompanyAsync(model);
-        return CreatedAtAction(nameof(GetCompany), new { id = company.Id }, company);
+        var result = await _companyService.CreateCompanyAsync(model);
+
+        if (!result.IsSuccess)
+        {
+            return BadRequest(result.Error);
+        }
+
+        return CreatedAtAction(nameof(GetCompany), new { id = result.Data.Id }, result.Data);
     }
 
     [HttpGet("{id}")]
@@ -30,7 +36,7 @@ public class CompanyController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateCompany(Guid id, [FromBody] UpdateCompanyRequestDto model)
+    public async Task<IActionResult> UpdateCompany(Guid id, [FromBody] UpdateCompanyDto model)
     {
         var company = await _companyService.UpdateCompanyAsync(id, model);
         if (company == null)

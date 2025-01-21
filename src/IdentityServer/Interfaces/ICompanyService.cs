@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 public interface ICompanyService
 {
-    Task<CompanyResponseDto> CreateCompanyAsync(CreateCompanyDto model);
+    Task<Result<CompanyResponseDto>> CreateCompanyAsync(CreateCompanyDto model);
     Task<CompanyResponseDto> GetCompanyByIdAsync(Guid companyId);
-    Task<CompanyResponseDto> UpdateCompanyAsync(Guid companyId, UpdateCompanyRequestDto model);
+    Task<Result<CompanyResponseDto>> UpdateCompanyAsync(Guid companyId, UpdateCompanyDto model);
     Task<bool> DeleteCompanyAsync(Guid companyId);
-    Task<List<CompanyResponseDto>> GetAllCompaniesAsync();  // Tüm şirketleri getiren metot
+    Task<List<CompanyResponseDto>> GetAllCompaniesAsync();
 }
