@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-public class ApplicationUser : IdentityUser
+namespace Identity.API.Models
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
-    // Kullanıcının izinlerini tutacak özellik
-    public List<string> Permissions { get; set; } = new List<string>();
+    // Add profile data for application users by adding properties to the ApplicationUser class
+    public class ApplicationUser : IdentityUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
 }
